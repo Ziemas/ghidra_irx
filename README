@@ -1,0 +1,5 @@
+This plugin searches for imports in IRX modules and applies labels to them.
+
+
+Build instructions:
+    gradle -PGHIDRA_INSTALL_DIR=/path/to/your/ghidra buildExtension
