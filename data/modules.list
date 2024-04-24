@@ -235,6 +235,8 @@ intrman 018 CpuResumeIntr
 intrman 023 QueryIntrContext
 intrman 024 QueryIntrStack
 intrman 025 iCatchMultiIntr
+intrman 028 SetNewCtxCb
+intrman 030 SetShouldPreemptCb
 ioman 004 open
 ioman 005 close
 ioman 006 read
