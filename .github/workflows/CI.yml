@@ -13,28 +13,34 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
+        
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
           java-version: "17"
           java-package: jdk
           architecture: x64
+          
       - name: Setup Ghidra
         uses: er28-0652/setup-ghidra@b53614dada0a16e3c342277caae905b96d803109
         with:
           version: ${{ matrix.ghidra }}
-      - name: Download stdump
-        run: bash ./os/download.sh
+          
+#      - name: Download stdump
+#        run: bash ./os/download.sh
+        
       - name: Test
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
           arguments: test -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+          
       - name: Build Extension
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
           arguments: buildExtension -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+          
       - name: Release
         uses: svenstaro/upload-release-action@v1-release
         with:
