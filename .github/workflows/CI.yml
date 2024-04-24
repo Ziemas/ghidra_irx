@@ -26,9 +26,6 @@ jobs:
         with:
           version: ${{ matrix.ghidra }}
           
-#      - name: Download stdump
-#        run: bash ./os/download.sh
-        
       - name: Test
         uses: gradle/gradle-build-action@v2
         with:
@@ -40,8 +37,16 @@ jobs:
         with:
           gradle-version: 7.6
           arguments: buildExtension -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
-          
+
+      - name: Upload variants artifact ELF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ghidra_irx
+          path: |
+            dist/*.zip
+            
       - name: Release
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
         uses: svenstaro/upload-release-action@v1-release
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
