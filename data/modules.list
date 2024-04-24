@@ -111,6 +111,8 @@ heaplib 005 DeleteHeap
 heaplib 006 AllocHeapMemory
 heaplib 007 FreeHeapMemory
 heaplib 008 HeapTotalFreeSize
+heaplib 011 HeapPrepare
+heaplib 015 HeapChunkSize
 ilink 000 sce1394SetupModule
 ilink 002 sce1394ReleaseModule
 ilink 004 sce1394Initialize
