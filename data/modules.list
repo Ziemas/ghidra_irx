@@ -331,6 +331,11 @@ modload 007 LoadStartModule
 modload 008 StartModule
 modload 009 LoadModuleBufferAddress
 modload 010 LoadModuleBuffer
+modload 011 LoadStartKelfModule
+modload 012 SetSecrmanCallbacks
+modload 013 SetCheckKelfPathCallback
+modload 014 GetLoadfileCallbacks
+modload 015 IsIllegalBootDevice
 modload 016 GetModuleIdList
 modload 017 ReferModuleStatus
 modload 018 GetModuleIdListByName
