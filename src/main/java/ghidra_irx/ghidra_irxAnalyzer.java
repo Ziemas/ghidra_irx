@@ -90,9 +90,10 @@ public class ghidra_irxAnalyzer extends AbstractAnalyzer {
                 }
 
                 String nameString = new String(namebytes).split("\0")[0];
+                nameString = "imports_" + nameString;
 
                 try {
-                    tbl.createLabel(addr, nameString.concat("_imports"), SourceType.ANALYSIS);
+                    tbl.createLabel(addr, nameString, SourceType.ANALYSIS);
                 } catch (InvalidInputException e) {
                     return false;
                 }
