@@ -650,6 +650,7 @@ sysmem 007 QueryMaxFreeMemSize
 sysmem 008 QueryTotalFreeMemSize
 sysmem 009 QueryBlockTopAddress
 sysmem 010 QueryBlockSize
+sysmem 011 GetSysMemoryInfo
 sysmem 014 Kprintf
 thbase 004 CreateThread
 thbase 005 DeleteThread
