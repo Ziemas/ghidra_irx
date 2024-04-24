@@ -1,9 +1,8 @@
 name: Publish unstable builds
 
 on:
+  workflow_dispatch:
   push:
-    branches:
-      - main
 
 jobs:
   build_and_publish:
