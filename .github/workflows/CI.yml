@@ -1,0 +1,57 @@
+name: Publish unstable builds
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ghidra:  ["11.0.3"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "17"
+          java-package: jdk
+          architecture: x64
+          
+      - name: Setup Ghidra
+        uses: er28-0652/setup-ghidra@b53614dada0a16e3c342277caae905b96d803109
+        with:
+          version: ${{ matrix.ghidra }}
+          
+      - name: Test
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.6
+          arguments: test -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+          
+      - name: Build Extension
+        uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 7.6
+          arguments: buildExtension -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+
+      - name: Upload variants artifact ELF
+        uses: actions/upload-artifact@v4
+        with:
+          name: ghidra_irx
+          path: |
+            dist/*.zip
+            
+      - name: Release
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'
+        uses: svenstaro/upload-release-action@v1-release
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*.zip
+          tag: "latest"
+          overwrite: true
+          file_glob: true
