@@ -483,6 +483,9 @@ netdev 012 sceInetAllocPkt
 netdev 013 sceInetFreePkt
 netdev 014 sceInetRegisterPPPoE
 netdev 015 sceInetUnregisterPPPoE
+romdrv 004 romAddDevice
+romdrv 005 romDelDevice
+romdrv 006 romGetDevice
 scrtpad 004 AllocScratchPad
 scrtpad 005 FreeScratchPad
 sdhd 004 sceSdHdGetMaxProgramNumber
