@@ -880,3 +880,66 @@ vblank 006 WaitVblank
 vblank 007 WaitNonVblank
 vblank 008 RegisterVblankHandler
 vblank 009 ReleaseVblankHandler
+
+#NAMCO SYSTEM 246 / 256 MODULES:
+accore 008 acDmaSetup
+accore 009 acDmaRequest
+accore 011 acDmaCancel
+accore 017 acIntrRegister
+accore 018 acIntrRelease
+accore 019 acIntrEnable
+accore 020 acIntrDisable
+
+actimer 004 acTimerModuleStart
+actimer 005 acTimerModuleRestart
+actimer 006 acTimerModuleStop
+actimer 007 acTimerModuleStatus
+actimer 008 acTimerAdd
+actimer 009 acTimerRemove
+
+acdev 004 SetAcMemDelayReg
+acdev 005 GetAcMemDelayReg
+acdev 006 SetAcIoDelayReg
+acdev 007 GetAcIoDelayReg
+
+acflash 004 acFlashModuleRestart
+acflash 005 acFlashModuleStart
+acflash 006 acFlashModuleStatus
+acflash 007 acFlashModuleStop
+acflash 008 acFlashStart
+acflash 009 acFlashStatus
+acflash 010 acFlashStop
+acflash 011 acFlashInfo
+acflash 012 acFlashErase
+acflash 013 acFlashProgram
+acflash 014 acFlashRead
+acflash 015 acFlashVerify
+
+acuart 004 acUartModuleRestart
+acuart 005 acUartModuleStart
+acuart 006 acUartModuleStatus
+acuart 007 acUartModuleStop
+acuart 008 acUartRead
+acuart 009 acUartWrite
+acuart 010 acUartWait
+acuart 011 acUartGetAttr
+acuart 012 acUartSetAttr
+
+accore 004 acDmaModuleRestart
+accore 005 acDmaModuleStart
+accore 006 acDmaModuleStatus
+accore 007 acDmaModuleStop
+accore 008 acDmaSetup
+accore 009 acDmaRequest
+accore 010 acDmaRequestI
+accore 011 acDmaCancel
+accore 012 acDmaCancelI
+accore 013 acIntrModuleRestart
+accore 014 acIntrModuleStart
+accore 015 acIntrModuleStatus
+accore 016 acIntrModuleStop
+accore 017 acIntrRegister
+accore 018 acIntrRelease
+accore 019 acIntrEnable
+accore 020 acIntrDisable
+accore 021 acIntrClear
