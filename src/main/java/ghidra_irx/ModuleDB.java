@@ -16,8 +16,12 @@ public class ModuleDB {
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
         String line = "";
-        while ( (line = reader.readLine()) != null)
+        while ((line = reader.readLine()) != null)
         {
+            if (line.trim().length() == 0 || line.charAt(0) == '#') {
+                continue;
+            }
+
             String[] entry = line.split(" ");
             if (!db.containsKey(entry[0])) {
                 db.put(entry[0], new Hashtable<>());
