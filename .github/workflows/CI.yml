@@ -23,7 +23,7 @@ jobs:
           architecture: x64
           
       - name: Setup Ghidra
-        uses: er28-0652/setup-ghidra@b53614dada0a16e3c342277caae905b96d803109
+        uses: antoniovazquezblanco/setup-ghidra@v2.0.6
         with:
           version: ${{ matrix.ghidra }}
           
@@ -31,13 +31,13 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
-          arguments: test -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+          arguments: test
           
       - name: Build Extension
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 7.6
-          arguments: buildExtension -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
+          arguments: buildExtension
 
       - name: Upload variants artifact ELF
         uses: actions/upload-artifact@v4
